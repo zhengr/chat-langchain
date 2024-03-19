@@ -35,3 +35,4 @@ jobs:
           VOYAGE_AI_URL: ${{ secrets.VOYAGE_AI_URL }}
           VOYAGE_API_KEY: ${{ secrets.VOYAGE_API_KEY }}
           FORCE_UPDATE: ${{ github.event.inputs.force_update }}
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
