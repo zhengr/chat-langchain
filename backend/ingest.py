@@ -14,13 +14,17 @@ from langchain.utils.html import PREFIXES_TO_IGNORE_REGEX, SUFFIXES_TO_IGNORE_RE
 from langchain_community.vectorstores import Weaviate
 from langchain_core.embeddings import Embeddings
 from langchain_openai import OpenAIEmbeddings
+from langchain_community.embeddings import CohereEmbeddings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 def get_embeddings_model() -> Embeddings:
-    return OpenAIEmbeddings(model="text-embedding-3-small", chunk_size=200)
+    COHERE_API_KEY = os.environ["COHERE_API_KEY"]
+    
+    return CohereEmbeddings(model="embed-english-light-v3.0",cohere_api_key=COHERE_API_KEY)
+    # return OpenAIEmbeddings(model="text-embedding-3-small", chunk_size=200)
 
 
 def metadata_extractor(meta: dict, soup: BeautifulSoup) -> dict:
