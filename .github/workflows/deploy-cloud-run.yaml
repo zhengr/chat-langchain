@@ -34,7 +34,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: docker.io/langchain/chat-langchain-backend:${{ env.GIT_SHORT_SHA }}
+        tags: docker.io/zhengr/chat-langchain-backend:${{ env.GIT_SHORT_SHA }}
 
     - name: Checkout deployments repo
       uses: actions/checkout@v3
@@ -47,7 +47,7 @@ jobs:
       run: |
         cd deployments/environments/gcp/chat-langchain
         # Modify the main.tf terraform file
-        sed -i "s|image_tag                   = \"docker.io/langchain/chat-langchain-backend:[^\"]*\"|image_tag                   = \"docker.io/langchain/chat-langchain-backend:${{ env.GIT_SHORT_SHA }}\"|" main.tf
+        sed -i "s|image_tag                   = \"docker.io/zhengr/chat-langchain-backend:[^\"]*\"|image_tag                   = \"docker.io/zhengr/chat-langchain-backend:${{ env.GIT_SHORT_SHA }}\"|" main.tf
 
     - name: Create Pull Request
       id: create-pr
