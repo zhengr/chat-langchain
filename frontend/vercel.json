@@ -4,10 +4,4 @@
       "main": false
     }
   }
-  "routes": [
-        {
-            "src": "/(.*)",
-            "dest": ".next/server/app"
-        }
-    ]
 }
