@@ -1,4 +1,4 @@
-name: Build, Push, and Deploy Chat Langchain
+name: Build docker image, and Deploy Chat Langchain
 
 on:
   push:
